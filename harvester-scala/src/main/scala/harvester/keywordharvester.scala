@@ -9,6 +9,8 @@ case class RelatedKeyword(word: String, relevance: Int) extends Comparable[Relat
 object ElementQualifier extends Enumeration {
   type ElementQualifier = Value
   val H1, H2, H3 = Value
+  
+  def valueOfTag(value : String) = H1
 }
 
 import harvester.ElementQualifier._
