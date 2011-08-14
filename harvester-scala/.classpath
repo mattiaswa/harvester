@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="src" path="src/main/scala"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+	<classpathentry kind="con" path="org.scala-ide.sdt.launching.SCALA_CONTAINER"/>
+	<classpathentry kind="con" path="org.scala-ide.sdt.launching.SCALA_COMPILER_CONTAINER"/>
+	<classpathentry kind="var" path="M2_REPO/commons-io/commons-io/2.0.1/commons-io-2.0.1.jar"/>
+	<classpathentry kind="var" path="M2_REPO/net/htmlparser/jericho/jericho-html/3.2/jericho-html-3.2.jar" sourcepath="M2_REPO/net/htmlparser/jericho/jericho-html/3.2/jericho-html-3.2-sources.jar"/>
+	<classpathentry kind="var" path="M2_REPO/com/google/code/gson/gson/1.7.1/gson-1.7.1.jar" sourcepath="M2_REPO/com/google/code/gson/gson/1.7.1/gson-1.7.1-sources.jar"/>
+	<classpathentry kind="output" path="bin"/>
+</classpath>

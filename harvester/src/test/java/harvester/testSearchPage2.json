@@ -1,0 +1,180 @@
+{
+ "kind": "customsearch#search",
+ "url": {
+  "type": "application/json",
+  "template": "https://www.googleapis.com/customsearch/v1?q\u003d{searchTerms}&num\u003d{count?}&start\u003d{startIndex?}&hr\u003d{language?}&safe\u003d{safe?}&cx\u003d{cx?}&cref\u003d{cref?}&sort\u003d{sort?}&alt\u003djson"
+ },
+ "queries": {
+  "request": [
+   {
+    "title": "Google Custom Search - soccer",
+    "totalResults": 40500000,
+    "searchTerms": "soccer",
+    "count": 10,
+    "startIndex": 11,
+    "inputEncoding": "utf8",
+    "outputEncoding": "utf8",
+    "safe": "off",
+    "cx": "008238868649727884978:msi2xt9aatg"
+   }
+  ],
+  "previousPage": [
+   {
+    "title": "Google Custom Search - soccer",
+    "totalResults": 40500000,
+    "searchTerms": "soccer",
+    "count": 10,
+    "startIndex": 1,
+    "inputEncoding": "utf8",
+    "outputEncoding": "utf8",
+    "safe": "off",
+    "cx": "008238868649727884978:msi2xt9aatg"
+   }
+  ]
+ },
+ "context": {
+  "title": "keywords"
+ },
+ "items": [
+  {
+   "kind": "customsearch#result",
+   "title": "FunBrain.com's Soccer Shootout",
+   "htmlTitle": "FunBrain.com&#39;s \u003cb\u003eSoccer\u003c/b\u003e Shootout",
+   "link": "http://www.funbrain.com/fractop/index.html",
+   "displayLink": "www.funbrain.com",
+   "snippet": "FunBrain's Soccer Shootout is a game to practice simplifying fractions.",
+   "htmlSnippet": "FunBrain&#39;s \u003cb\u003eSoccer\u003c/b\u003e Shootout is a game to practice simplifying fractions.",
+   "cacheId": "kEN7uE5UKKAJ"
+  },
+  {
+   "kind": "customsearch#result",
+   "title": "English Premier League, MLS, news, scores, stats - Soccer - SI.com",
+   "htmlTitle": "English Premier League, MLS, news, scores, stats - \u003cb\u003eSoccer\u003c/b\u003e - SI.com",
+   "link": "http://sportsillustrated.cnn.com/soccer/",
+   "displayLink": "sportsillustrated.cnn.com",
+   "snippet": "MLS, UEFA Champions League, English Premier League, World Cup, Champions League,   Soccer scores, soccer news, soccer standings and expert commentary on the ...",
+   "htmlSnippet": "MLS, UEFA Champions League, English Premier League, World Cup, Champions League, \u003cbr\u003e  \u003cb\u003eSoccer\u003c/b\u003e scores, \u003cb\u003esoccer\u003c/b\u003e news, \u003cb\u003esoccer\u003c/b\u003e standings and expert commentary on the \u003cb\u003e...\u003c/b\u003e",
+   "cacheId": "epZBLneNMJgJ"
+  },
+  {
+   "kind": "customsearch#result",
+   "title": "The official website for European football – UEFA.com",
+   "htmlTitle": "The official website for European football – UEFA.com",
+   "link": "http://www.uefa.com/",
+   "displayLink": "www.uefa.com",
+   "snippet": "Europe's football website, uefa.com, is the official site of UEFA, the Union of   European Football Associations, and the governing body of football in Europe ...",
+   "htmlSnippet": "Europe&#39;s football website, uefa.com, is the official site of UEFA, the Union of \u003cbr\u003e  European Football Associations, and the governing body of football in Europe \u003cb\u003e...\u003c/b\u003e",
+   "cacheId": "Kzf54vxaQDYJ",
+   "pagemap": {
+    "sport": [
+     {
+      "title": "UEFA.com",
+      "type": "sport",
+      "url": "http://www.uefa.com/index.html",
+      "image": "http://img.uefa.com/imgml/icons/social/og/uefacom.jpg",
+      "site_name": "UEFA.com",
+      "description": "Europe’s football website, now on Facebook.",
+      "app_id": "197885243570897"
+     }
+    ],
+    "metatags": [
+     {
+      "author": "uefa.com"
+     }
+    ]
+   }
+  },
+  {
+   "kind": "customsearch#result",
+   "title": "Soccer America - Covering US, International, MLS, College, Youth ...",
+   "htmlTitle": "\u003cb\u003eSoccer\u003c/b\u003e America - Covering US, International, MLS, College, Youth \u003cb\u003e...\u003c/b\u003e",
+   "link": "http://www.socceramerica.com/",
+   "displayLink": "www.socceramerica.com",
+   "snippet": "5 hours ago ... Soccer America is the number one source for soccer fans with interviews,   opinions, news, analysis, previews and information you can use.",
+   "htmlSnippet": "5 hours ago \u003cb\u003e...\u003c/b\u003e \u003cb\u003eSoccer\u003c/b\u003e America is the number one source for \u003cb\u003esoccer\u003c/b\u003e fans with interviews, \u003cbr\u003e  opinions, news, analysis, previews and information you can use.",
+   "cacheId": "lzp8LZGCTNUJ",
+   "pagemap": {
+    "metatags": [
+     {
+      "msvalidate.01": "79D07E51C440BFE1E32248924A5F9994",
+      "y_key": "b012cad4b6beaff2"
+     }
+    ]
+   }
+  },
+  {
+   "kind": "customsearch#result",
+   "title": "adidas Soccer - adidas Soccer",
+   "htmlTitle": "adidas \u003cb\u003eSoccer\u003c/b\u003e - adidas \u003cb\u003eSoccer\u003c/b\u003e",
+   "link": "http://www.adidas.com/us/soccer/",
+   "displayLink": "www.adidas.com",
+   "snippet": "UEFA CHAMPIONS LEAGUE · CLUBS · SHOP SOCCER. own the game. Control every move,   every play, every ball with the new adipower predator®. CLICK TO EXPLORE ...",
+   "htmlSnippet": "UEFA CHAMPIONS LEAGUE · CLUBS · SHOP \u003cb\u003eSOCCER\u003c/b\u003e. own the game. Control every move, \u003cbr\u003e  every play, every ball with the new adipower predator®. CLICK TO EXPLORE \u003cb\u003e...\u003c/b\u003e",
+   "cacheId": "0WmrJhXM_CoJ"
+  },
+  {
+   "kind": "customsearch#result",
+   "title": "Pro-Direct Soccer - Football Boots, Football Shirts & Kits ...",
+   "htmlTitle": "Pro-Direct \u003cb\u003eSoccer\u003c/b\u003e - Football Boots, Football Shirts &amp; Kits \u003cb\u003e...\u003c/b\u003e",
+   "link": "http://www.prodirectsoccer.com/",
+   "displayLink": "www.prodirectsoccer.com",
+   "snippet": "adidas Trainers, Nike Trainers, Urban Clothing, Accessories and more in our   Street Soccer collection. Football Culture at its best! ...",
+   "htmlSnippet": "adidas Trainers, Nike Trainers, Urban Clothing, Accessories and more in our \u003cbr\u003e  Street \u003cb\u003eSoccer\u003c/b\u003e collection. Football Culture at its best! \u003cb\u003e...\u003c/b\u003e",
+   "cacheId": "ZYyQMDxbBqQJ"
+  },
+  {
+   "kind": "customsearch#result",
+   "title": "FIFA.com - The Official Website of the FIFA World Cup™",
+   "htmlTitle": "FIFA.com - The Official Website of the FIFA World Cup™",
+   "link": "http://www.fifa.com/worldcup/index.html",
+   "displayLink": "www.fifa.com",
+   "snippet": "4 days ago ... Official site. Features news, information about venues, photo gallery, and   organizing committee details.",
+   "htmlSnippet": "4 days ago \u003cb\u003e...\u003c/b\u003e Official site. Features news, information about venues, photo gallery, and \u003cbr\u003e  organizing committee details.",
+   "cacheId": "Qoh4O_1acR0J",
+   "pagemap": {
+    "metatags": [
+     {
+      "author": "FIFA.com"
+     }
+    ]
+   }
+  },
+  {
+   "kind": "customsearch#result",
+   "title": "Live Soccer TV - Online Streaming and TV Listings, Live Football ...",
+   "htmlTitle": "Live \u003cb\u003eSoccer\u003c/b\u003e TV - Online Streaming and TV Listings, Live Football \u003cb\u003e...\u003c/b\u003e",
+   "link": "http://www.livesoccertv.com/",
+   "displayLink": "www.livesoccertv.com",
+   "snippet": "Live Soccer TV - football news, TV and online streaming listings, fixtures,   results, tables, stats, videos and more.",
+   "htmlSnippet": "Live \u003cb\u003eSoccer\u003c/b\u003e TV - football news, TV and online streaming listings, fixtures, \u003cbr\u003e  results, tables, stats, videos and more.",
+   "cacheId": "lPT1kFi4KvEJ"
+  },
+  {
+   "kind": "customsearch#result",
+   "title": "FIFA World Cup 2010 - Football / Soccer - ESPN Soccernet",
+   "htmlTitle": "FIFA World Cup 2010 - Football / \u003cb\u003eSoccer\u003c/b\u003e - ESPN Soccernet",
+   "link": "http://soccernet.espn.go.com/world-cup/",
+   "displayLink": "soccernet.espn.go.com",
+   "snippet": "Get complete, live coverage of the 2010 World Cup from South Africa including   expert analysis, schedules, statistics, highlights, and more.",
+   "htmlSnippet": "Get complete, live coverage of the 2010 World Cup from South Africa including \u003cbr\u003e  expert analysis, schedules, statistics, highlights, and more.",
+   "cacheId": "CbmX0BUsMdAJ"
+  },
+  {
+   "kind": "customsearch#result",
+   "title": "Manchester United Official Web Site",
+   "htmlTitle": "Manchester United Official Web Site",
+   "link": "http://www.manutd.com/",
+   "displayLink": "www.manutd.com",
+   "snippet": "Official site, with news, interviews, videos and access to the One United   membership scheme.",
+   "htmlSnippet": "Official site, with news, interviews, videos and access to the One United \u003cbr\u003e  membership scheme.",
+   "cacheId": "9e5rvhE_Sd8J",
+   "pagemap": {
+    "metatags": [
+     {
+      "metatitle": "Manchester United Official Web Site"
+     }
+    ]
+   }
+  }
+ ]
+}

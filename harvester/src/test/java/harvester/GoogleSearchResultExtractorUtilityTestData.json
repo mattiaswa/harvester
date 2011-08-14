@@ -1,0 +1,79 @@
+{
+ "kind": "customsearch#search",
+ "url": {
+  "type": "application/json",
+  "template": "https://www.googleapis.com/customsearch/v1?q\u003d{searchTerms}&num\u003d{count?}&start\u003d{startIndex?}&hr\u003d{language?}&safe\u003d{safe?}&cx\u003d{cx?}&cref\u003d{cref?}&sort\u003d{sort?}&alt\u003djson"
+ },
+ "queries": {
+  "nextPage": [
+   {
+    "title": "Google Custom Search - mobile phone",
+    "totalResults": 275000000,
+    "searchTerms": "mobile phone",
+    "count": 10,
+    "startIndex": 11,
+    "inputEncoding": "utf8",
+    "outputEncoding": "utf8",
+    "safe": "off",
+    "cx": "008238868649727884978:msi2xt9aatg"
+   }
+  ],
+  "request": [
+   {
+    "title": "Google Custom Search - mobile phone",
+    "totalResults": 275000000,
+    "searchTerms": "mobile phone",
+    "count": 10,
+    "startIndex": 1,
+    "inputEncoding": "utf8",
+    "outputEncoding": "utf8",
+    "safe": "off",
+    "cx": "008238868649727884978:msi2xt9aatg"
+   }
+  ]
+ },
+ "context": {
+  "title": "keywords"
+ },
+ "items": [
+  {
+   "kind": "customsearch#result",
+   "title": "Cell phone reviews: Cellphones, mobile phones & wireless phone ...",
+   "htmlTitle": "\u003cb\u003eCell phone\u003c/b\u003e reviews: Cellphones, \u003cb\u003emobile phones\u003c/b\u003e &amp; wireless phone \u003cb\u003e...\u003c/b\u003e",
+   "link": "http://reviews.cnet.com/cell-phones/",
+   "displayLink": "reviews.cnet.com",
+   "snippet": "Cell phone and wireless phone reviews and ratings, video reviews, user opinions,   most popular phones, cell phone buying guides, prices, and comparisons from ...",
+   "htmlSnippet": "\u003cb\u003eCell phone\u003c/b\u003e and wireless phone reviews and ratings, video reviews, user opinions, \u003cbr\u003e  most popular phones, \u003cb\u003ecell phone\u003c/b\u003e buying guides, prices, and comparisons from \u003cb\u003e...\u003c/b\u003e",
+   "cacheId": "FC7ci0LYddUJ",
+   "pagemap": {
+    "": [
+     {
+      "app_id": "16995676698",
+      "admins": "100001036810388",
+      "page_id": "7155422274",
+      "site_name": "CNET"
+     }
+    ]
+   }
+  },
+  {
+   "kind": "customsearch#result",
+   "title": "Cell Phone, Tablet, and App News, Videos, & Reviews | MobileBurn.com",
+   "htmlTitle": "\u003cb\u003eCell Phone\u003c/b\u003e, Tablet, and App News, Videos, &amp; Reviews | MobileBurn.com",
+   "link": "http://www.mobileburn.com/",
+   "displayLink": "www.mobileburn.com",
+   "snippet": "The premium site for cell phone and mobile phone reviews. Expert analysis, news,   and HD videos to help you find the right cell phone.",
+   "htmlSnippet": "The premium site for \u003cb\u003ecell phone\u003c/b\u003e and \u003cb\u003emobile phone\u003c/b\u003e reviews. Expert analysis, news, \u003cbr\u003e  and HD videos to help you find the right \u003cb\u003ecell phone\u003c/b\u003e.",
+   "pagemap": {
+    "metatags": [
+     {
+      "contentaltering": "none",
+      "author": "Michael F. Oryl Jr."
+     }
+    ]
+   }
+  }
+  
+ ]
+}
+

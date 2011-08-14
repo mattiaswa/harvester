@@ -1,0 +1,217 @@
+{
+ "kind": "customsearch#search",
+ "url": {
+  "type": "application/json",
+  "template": "https://www.googleapis.com/customsearch/v1?q\u003d{searchTerms}&num\u003d{count?}&start\u003d{startIndex?}&hr\u003d{language?}&safe\u003d{safe?}&cx\u003d{cx?}&cref\u003d{cref?}&sort\u003d{sort?}&alt\u003djson"
+ },
+ "queries": {
+  "nextPage": [
+   {
+    "title": "Google Custom Search - soccer",
+    "totalResults": 40500000,
+    "searchTerms": "soccer",
+    "count": 10,
+    "startIndex": 11,
+    "inputEncoding": "utf8",
+    "outputEncoding": "utf8",
+    "safe": "off",
+    "cx": "008238868649727884978:msi2xt9aatg"
+   }
+  ],
+  "request": [
+   {
+    "title": "Google Custom Search - soccer",
+    "totalResults": 40500000,
+    "searchTerms": "soccer",
+    "count": 10,
+    "startIndex": 1,
+    "inputEncoding": "utf8",
+    "outputEncoding": "utf8",
+    "safe": "off",
+    "cx": "008238868649727884978:msi2xt9aatg"
+   }
+  ]
+ },
+ "context": {
+  "title": "keywords"
+ },
+ "items": [
+  {
+   "kind": "customsearch#result",
+   "title": "SOCCER.COM - Soccer Shoes, Soccer Jerseys, Soccer Balls, Soccer ...",
+   "htmlTitle": "\u003cb\u003eSOCCER\u003c/b\u003e.COM - \u003cb\u003eSoccer\u003c/b\u003e Shoes, \u003cb\u003eSoccer\u003c/b\u003e Jerseys, \u003cb\u003eSoccer\u003c/b\u003e Balls, \u003cb\u003eSoccer\u003c/b\u003e \u003cb\u003e...\u003c/b\u003e",
+   "link": "http://www.soccer.com/",
+   "displayLink": "www.soccer.com",
+   "snippet": "Shop for all your soccer equipment and apparel needs from EUROSPORT including   soccer shoes, replica soccer jerseys, soccer balls, team uniforms, ...",
+   "htmlSnippet": "Shop for all your \u003cb\u003esoccer\u003c/b\u003e equipment and apparel needs from EUROSPORT including \u003cbr\u003e  \u003cb\u003esoccer\u003c/b\u003e shoes, replica \u003cb\u003esoccer\u003c/b\u003e jerseys, \u003cb\u003esoccer\u003c/b\u003e balls, team uniforms, \u003cb\u003e...\u003c/b\u003e",
+   "cacheId": "-LJyfcQw7eAJ"
+  },
+  {
+   "kind": "customsearch#result",
+   "title": "FIFA.com - Fédération Internationale de Football Association (FIFA)",
+   "htmlTitle": "FIFA.com - Fédération Internationale de Football Association (FIFA)",
+   "link": "http://www.fifa.com/",
+   "displayLink": "www.fifa.com",
+   "snippet": "21 hours ago ... FIFA Beach Soccer World Cup. News | Qualifiers | Destination · FIFA Club World   Cup Japan 2011 · News | Qualifiers | Destination ...",
+   "htmlSnippet": "21 hours ago \u003cb\u003e...\u003c/b\u003e FIFA Beach \u003cb\u003eSoccer\u003c/b\u003e World Cup. News | Qualifiers | Destination · FIFA Club World \u003cbr\u003e  Cup Japan 2011 · News | Qualifiers | Destination \u003cb\u003e...\u003c/b\u003e",
+   "cacheId": "qTzAZK0A6_sJ",
+   "pagemap": {
+    "metatags": [
+     {
+      "author": "FIFA.com"
+     }
+    ]
+   }
+  },
+  {
+   "kind": "customsearch#result",
+   "title": "Soccer / Football News and Scores - ESPN Soccernet",
+   "htmlTitle": "\u003cb\u003eSoccer\u003c/b\u003e / Football News and Scores - ESPN Soccernet",
+   "link": "http://soccernet.espn.go.com/",
+   "displayLink": "soccernet.espn.go.com",
+   "snippet": "Soccer / Football news, scores, stats, and features from the world's leading   soccer website, ESPN Soccernet.",
+   "htmlSnippet": "\u003cb\u003eSoccer\u003c/b\u003e / Football news, scores, stats, and features from the world&#39;s leading \u003cbr\u003e  \u003cb\u003esoccer\u003c/b\u003e website, ESPN Soccernet.",
+   "cacheId": "tNTid1JdeL4J"
+  },
+  {
+   "kind": "customsearch#result",
+   "title": "Home - U.S. Soccer",
+   "htmlTitle": "Home - U.S. \u003cb\u003eSoccer\u003c/b\u003e",
+   "link": "http://www.ussoccer.com/",
+   "displayLink": "www.ussoccer.com",
+   "snippet": "U.S. Soccer is the national governing body of the sport. Includes news, video,   tournaments, coverage of all US National teams and information on USSF member   ...",
+   "htmlSnippet": "U.S. \u003cb\u003eSoccer\u003c/b\u003e is the national governing body of the sport. Includes news, video, \u003cbr\u003e  tournaments, coverage of all US National teams and information on USSF member \u003cbr\u003e  \u003cb\u003e...\u003c/b\u003e",
+   "cacheId": "rmEweh5PokAJ",
+   "pagemap": {
+    "metatags": [
+     {
+      "copyright": "© U.S. SOCCER 2011, All Rights Reserved"
+     }
+    ]
+   }
+  },
+  {
+   "kind": "customsearch#result",
+   "title": "Soccer/Football News, Live Scores, Highlights, Video, Schedule ...",
+   "htmlTitle": "\u003cb\u003eSoccer\u003c/b\u003e/Football News, Live Scores, Highlights, Video, Schedule \u003cb\u003e...\u003c/b\u003e",
+   "link": "http://msn.foxsports.com/foxsoccer",
+   "displayLink": "msn.foxsports.com",
+   "snippet": "Get the latest soccer news, scores, standings and video highlights for the   Barclays Premier League, UEFA Champions League, Serie A on the leading soccer   ...",
+   "htmlSnippet": "Get the latest \u003cb\u003esoccer\u003c/b\u003e news, scores, standings and video highlights for the \u003cbr\u003e  Barclays Premier League, UEFA Champions League, Serie A on the leading \u003cb\u003esoccer\u003c/b\u003e \u003cbr\u003e  \u003cb\u003e...\u003c/b\u003e",
+   "cacheId": "XIk3ltYB9b4J",
+   "pagemap": {
+    "website": [
+     {
+      "title": "FOX Soccer",
+      "type": "website",
+      "url": "http://msn.foxsports.com/foxsoccer",
+      "admins": "81286652945",
+      "app_id": "139480292758948",
+      "site_name": "FOX Soccer",
+      "image": "http://static.foxsports.com/fe/fsi/img/logo/foxsoccer_logo_75x75.jpg",
+      "description": "Get the latest soccer news, scores, standings and video highlights for the Barclays Premier League, UEFA Champions League, Serie A on the leading soccer website FoxSoccer.com "
+     }
+    ],
+    "metatags": [
+     {
+      "format-detection": "telephone\u003dno"
+     }
+    ]
+   }
+  },
+  {
+   "kind": "customsearch#result",
+   "title": "Nike Soccer - World-class soccer cleats. World-class pros.",
+   "htmlTitle": "Nike \u003cb\u003eSoccer\u003c/b\u003e - World-class \u003cb\u003esoccer\u003c/b\u003e cleats. World-class pros.",
+   "link": "http://www.nike.com/nikefootball/home/?locale\u003den_US",
+   "displayLink": "www.nike.com",
+   "snippet": "Nike Soccer is the home of the world's most innovative soccer cleats, best   players and all-conquering teams.",
+   "htmlSnippet": "Nike \u003cb\u003eSoccer\u003c/b\u003e is the home of the world&#39;s most innovative \u003cb\u003esoccer\u003c/b\u003e cleats, best \u003cbr\u003e  players and all-conquering teams.",
+   "cacheId": "jXgMqVpHafIJ",
+   "pagemap": {
+    "metatags": [
+     {
+      "title": "Nike Soccer - World-class soccer cleats. World-class pros.",
+      "search_section": "general",
+      "category": "football",
+      "locale": "en_US"
+     }
+    ]
+   }
+  },
+  {
+   "kind": "customsearch#result",
+   "title": "Major League Soccer",
+   "htmlTitle": "Major League \u003cb\u003eSoccer\u003c/b\u003e",
+   "link": "http://www.mlssoccer.com/",
+   "displayLink": "www.mlssoccer.com",
+   "snippet": "The official site with news, standings, clubs, statistics, players and videos.",
+   "htmlSnippet": "The official site with news, standings, clubs, statistics, players and videos.",
+   "cacheId": "nwAxGoBHxTcJ",
+   "pagemap": {
+    "article": [
+     {
+      "type": "article",
+      "site_name": "MLSSoccer.com",
+      "url": "http://www.mlssoccer.com"
+     }
+    ]
+   }
+  },
+  {
+   "kind": "customsearch#result",
+   "title": "World Soccer Shop - official soccer jerseys, shirts, cleats, shoes ...",
+   "htmlTitle": "World \u003cb\u003eSoccer\u003c/b\u003e Shop - official \u003cb\u003esoccer\u003c/b\u003e jerseys, shirts, cleats, shoes \u003cb\u003e...\u003c/b\u003e",
+   "link": "http://www.worldsoccershop.com/",
+   "displayLink": "www.worldsoccershop.com",
+   "snippet": "World Soccer Shop is the world' premier destination for soccer gear. Shop soccer   jerseys, soccer shoes, soccer t-shirts, soccer equipment, and more.",
+   "htmlSnippet": "World \u003cb\u003eSoccer\u003c/b\u003e Shop is the world&#39; premier destination for \u003cb\u003esoccer\u003c/b\u003e gear. Shop \u003cb\u003esoccer\u003c/b\u003e \u003cbr\u003e  jerseys, \u003cb\u003esoccer\u003c/b\u003e shoes, \u003cb\u003esoccer\u003c/b\u003e t-shirts, \u003cb\u003esoccer\u003c/b\u003e equipment, and more.",
+   "cacheId": "bvEnPskpdIYJ",
+   "pagemap": {
+    "metatags": [
+     {
+      "publish-timestamp": "40757.1658336667",
+      "distribution": "Global",
+      "rating": "Family",
+      "language": "English",
+      "copyright": "© 1999-2011 365 Incorporated",
+      "author": "365 Inc J. Scott Russom",
+      "y_key": "6a4602b62559fc52"
+     }
+    ]
+   }
+  },
+  {
+   "kind": "customsearch#result",
+   "title": "Top Eleven Football Manager :: Soccer Manager",
+   "htmlTitle": "Top Eleven Football Manager :: \u003cb\u003eSoccer\u003c/b\u003e Manager",
+   "link": "http://www.topeleven.com/",
+   "displayLink": "www.topeleven.com",
+   "snippet": "You can still buy Tokens with SMS, Voucher, PayPal or card. Only on TopEleven.  com! Buy Tokens with SMS, Voucher, PayPal or card. Only on TopEleven.com! ...",
+   "htmlSnippet": "You can still buy Tokens with SMS, Voucher, PayPal or card. Only on TopEleven.\u003cbr\u003e  com! Buy Tokens with SMS, Voucher, PayPal or card. Only on TopEleven.com! \u003cb\u003e...\u003c/b\u003e",
+   "cacheId": "xnZXS2TFipkJ"
+  },
+  {
+   "kind": "customsearch#result",
+   "title": "World Soccer on Yahoo! Sports - News, Scores, Standings, Rumors ...",
+   "htmlTitle": "World \u003cb\u003eSoccer\u003c/b\u003e on Yahoo! Sports - News, Scores, Standings, Rumors \u003cb\u003e...\u003c/b\u003e",
+   "link": "http://sports.yahoo.com/soccer",
+   "displayLink": "sports.yahoo.com",
+   "snippet": "Comprehensive World Soccer news, scores, standings, fantasy games, rumors, and   more.",
+   "htmlSnippet": "Comprehensive World \u003cb\u003eSoccer\u003c/b\u003e news, scores, standings, fantasy games, rumors, and \u003cbr\u003e  more.",
+   "cacheId": "YDE1cG5GvmkJ",
+   "pagemap": {
+    "metatags": [
+     {
+      "application-name": "Yahoo! Sports",
+      "msapplication-tooltip": "Yahoo! Sports - Sports News, Scores, Rumors, Fantasy Games, and more",
+      "msapplication-task": "name\u003dSoccer Homepage;action-uri\u003dhttp://sports.yahoo.com/soccer;icon-uri\u003dhttp://sports.yahoo.com/favicon.ico",
+      "msapplication-task": "name\u003dSoccer Experts;action-uri\u003dhttp://sports.yahoo.com/soccer/expertscorner;icon-uri\u003dhttp://sports.yahoo.com/favicon.ico",
+      "msapplication-task": "name\u003dDirty Tackle;action-uri\u003dhttp://sports.yahoo.com/soccer/blog/dirty-tackle;icon-uri\u003dhttp://sports.yahoo.com/favicon.ico",
+      "msapplication-task": "name\u003dPhotos;action-uri\u003dhttp://sports.yahoo.com/soccer/gallery;icon-uri\u003dhttp://sports.yahoo.com/favicon.ico"
+     }
+    ]
+   }
+  }
+ ]
+}

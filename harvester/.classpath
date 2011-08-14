@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry including="**/*.html|**/*.json|**/*.java" kind="src" output="target/test-classes" path="src/test/java"/>
+	<classpathentry excluding="harvester/ElementQualifier.java|harvester/GoogleSearchResultExtractorUtility.java|harvester/HarvesterException.java|harvester/HtmlElementFinder.java|harvester/HtmlPageData.java|harvester/KeywordHarvester.java|harvester/PageLoader.java|harvester/PageLoaderReporter.java|harvester/RelatedKeyword.java|harvester/SearchProvider.java" including="**/*.html|**/*.json|**/*.java" kind="src" path="src/main/java"/>
+	<classpathentry excluding="**/*.java" kind="src" path="src/main/resources"/>
+	<classpathentry kind="var" path="M2_REPO/net/sourceforge/collections/collections-generic/4.01/collections-generic-4.01.jar" sourcepath="M2_REPO/net/sourceforge/collections/collections-generic/4.01/collections-generic-4.01-sources.jar"/>
+	<classpathentry kind="var" path="M2_REPO/commons-io/commons-io/2.0.1/commons-io-2.0.1.jar" sourcepath="M2_REPO/commons-io/commons-io/2.0.1/commons-io-2.0.1-sources.jar"/>
+	<classpathentry kind="var" path="M2_REPO/com/jgoodies/forms/1.2.1/forms-1.2.1.jar" sourcepath="M2_REPO/com/jgoodies/forms/1.2.1/forms-1.2.1-sources.jar"/>
+	<classpathentry kind="var" path="M2_REPO/com/google/code/gson/gson/1.7.1/gson-1.7.1.jar" sourcepath="M2_REPO/com/google/code/gson/gson/1.7.1/gson-1.7.1-sources.jar"/>
+	<classpathentry kind="var" path="M2_REPO/net/htmlparser/jericho/jericho-html/3.2/jericho-html-3.2.jar" sourcepath="M2_REPO/net/htmlparser/jericho/jericho-html/3.2/jericho-html-3.2-sources.jar"/>
+	<classpathentry kind="var" path="M2_REPO/junit/junit/4.8.2/junit-4.8.2.jar" sourcepath="M2_REPO/junit/junit/4.8.2/junit-4.8.2-sources.jar"/>
+	<classpathentry kind="var" path="M2_REPO/log4j/log4j/1.2.14/log4j-1.2.14.jar" sourcepath="M2_REPO/log4j/log4j/1.2.14/log4j-1.2.14-sources.jar"/>
+	<classpathentry kind="var" path="M2_REPO/org/mockito/mockito-all/1.8.5/mockito-all-1.8.5.jar" sourcepath="M2_REPO/org/mockito/mockito-all/1.8.5/mockito-all-1.8.5-sources.jar"/>
+	<classpathentry kind="var" path="M2_REPO/org/slf4j/slf4j-api/1.5.11/slf4j-api-1.5.11.jar" sourcepath="M2_REPO/org/slf4j/slf4j-api/1.5.11/slf4j-api-1.5.11-sources.jar"/>
+	<classpathentry kind="var" path="M2_REPO/org/slf4j/slf4j-log4j12/1.5.11/slf4j-log4j12-1.5.11.jar" sourcepath="M2_REPO/org/slf4j/slf4j-log4j12/1.5.11/slf4j-log4j12-1.5.11-sources.jar"/>
+	<classpathentry kind="con" path="org.scala-ide.sdt.launching.SCALA_CONTAINER"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+	<classpathentry kind="output" path="target/classes"/>
+</classpath>
