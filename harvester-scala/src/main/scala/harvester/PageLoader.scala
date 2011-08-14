@@ -2,14 +2,28 @@ package harvester
 
 import java.io.IOException
 import java.io.InputStream
+import java.io.InputStreamReader
+import java.io.Reader
 import java.net.URL
 import java.net.URLConnection
+import java.net.URLEncoder
+
+import scala.collection.JavaConversions._
 
 import org.apache.commons.io.IOUtils._
 import org.apache.commons.io._
 
+import com.google.gson._
+
+import SearchProvider._
 import harvester.ElementQualifier._
-import com.google.gson._;
+import net.htmlparser.jericho.CharacterReference
+import net.htmlparser.jericho.HTMLElementName
+import net.htmlparser.jericho.MasonTagTypes
+import net.htmlparser.jericho.MicrosoftConditionalCommentTagTypes
+import net.htmlparser.jericho.PHPTagTypes
+import net.htmlparser.jericho.Source
+import net.htmlparser.jericho.TextExtractor
 
 private object PageLoader {
   val NUMBER_OF_PAGES_TO_FETCH = 10;
@@ -17,97 +31,99 @@ private object PageLoader {
 
 private object HtmlElementFinder {
   MicrosoftConditionalCommentTagTypes.register();
-	PHPTagTypes.register();
-	PHPTagTypes.PHP_SHORT.deregister(); // remove PHP short tags for this
-	// example otherwise they override
-	// processing instructions
-	MasonTagTypes.register();
+  PHPTagTypes.register();
+  PHPTagTypes.PHP_SHORT.deregister(); // remove PHP short tags for this
+  // example otherwise they override
+  // processing instructions
+  MasonTagTypes.register();
 }
 private class HtmlElementFinder(private val page: String) {
-//  def getTitle = ""
-//  def getMetaValue = ""
-//  def getBodyValues: Map[ElementQualifier, String] = Map.empty[ElementQualifier, String]
-//  
-  
-    private final String title;
-    private final String keywords;
-    private final Map<ElementQualifier, String> bodyContent = new HashMap<ElementQualifier, String>();
 
-    public HtmlElementFinder(String htmlSource) {
-	Source source = new Source(htmlSource);
-	source.fullSequentialParse();
+  val source = new Source(page);
+  source.fullSequentialParse();
 
-	this.title = getTitle(source);
-	this.keywords = getMetaValue(source, "keywords");
-	searchBody(source); 
+  val title = getTitle(source)
+  val keywords = getMetaValue(source, "keywords")
+  val bodyContent = searchBody(source)
+
+  private def searchBody(source: Source) = {
+    var body = Map.empty[ElementQualifier, String]
+    for (htmlTagName <- ElementQualifier.values) {
+
+      source.getAllElements(htmlTagName.toString().toLowerCase()).foreach(hTag => {
+        val content = new TextExtractor(hTag).toString();
+        body.get(htmlTagName) match {
+          case None => body += htmlTagName -> content
+          case Some(value) => body += htmlTagName -> (value + " " + content)
+        }
+      })
+    }
+    body
+  }
+
+  def getBodyValues(q: ElementQualifier) = {
+    bodyContent.get(q);
+  }
+
+  private def getTitle(source: Source) = {
+    val titleElement = source.getFirstElement(HTMLElementName.TITLE)
+    if (titleElement == null) {
+      "";
     }
 
-    private void searchBody(Source source) {
-	final Set<String> tagNames = new HashSet<String>(Arrays.asList(ElementQualifier.asStrings()));
+    // TITLE element never contains other tags so just decode it collapsing
+    // whitespace:
+    CharacterReference.decodeCollapseWhiteSpace(titleElement.getContent());
+  }
 
-	for (String htmlTagName : tagNames) {
-	    for (Element hTag : source.getAllElements(htmlTagName)) {
-		TextExtractor te = new TextExtractor(hTag);
-		updateBodyContent(htmlTagName, te.toString());
-	    }
-	}	
+  private def getMetaValue(source: Source, key: String) = {
+    var pos = 0
+    while (pos < source.length()) {
+      val startTag = source.getNextStartTag(pos, "name", key, false);
+      if (startTag == null)
+        null;
+      if (startTag.getName().equals(HTMLElementName.META)) {
+        // Attribute values are automatically decoded
+        startTag.getAttributeValue("content");
+      }
+      pos = startTag.getEnd();
     }
+    "";
+  }
+}
 
-    public String getTitle() {
-	return title;
-    }
-
-    public String getMetaValue() {
-	return keywords;
-    }
-
-    public String getBodyValues(ElementQualifier q) {
-	return bodyContent.get(q);
-    }
-    
-    public Map<ElementQualifier, String> getBodyValues() {
-	return new HashMap<ElementQualifier, String>(bodyContent);
-    }
-
-    private void updateBodyContent(String elemName, String content) {
-	ElementQualifier eq = ElementQualifier.valueOfTag(elemName);
-	
-	String oldValue = bodyContent.get(eq);
-	if(oldValue == null) {
-	    bodyContent.put(eq, content);
-	} else {
-	    bodyContent.put(eq, oldValue + " " + content);
-	}
-    }
-
-    private String getTitle(Source source) {
-	Element titleElement = source.getFirstElement(HTMLElementName.TITLE);
-	if (titleElement == null) {
-	    return "";
-	}
-
-	// TITLE element never contains other tags so just decode it collapsing
-	// whitespace:
-	return CharacterReference.decodeCollapseWhiteSpace(titleElement.getContent());
-    }
-
-    private static String getMetaValue(Source source, String key) {
-	for (int pos = 0; pos < source.length();) {
-	    StartTag startTag = source.getNextStartTag(pos, "name", key, false);
-	    if (startTag == null)
-		return null;
-	    if (startTag.getName().equals(HTMLElementName.META)) {
-		// Attribute values are automatically decoded
-		return startTag.getAttributeValue("content");
-	    }
-	    pos = startTag.getEnd();
-	}
-	return "";
-    }
+private object SearchProvider {
+  val SEARCH_URL_PATTERN = "https://www.googleapis.com/customsearch/v1?" + "cx=008238868649727884978:msi2xt9aatg&key=AIzaSyDqC8D822At_Sj2LumIu5a4au1J0gPEVB8&nu" + "&q=%s" + "&start=%d"
 }
 
 class SearchProvider {
-  def searchForKeywordStartingAtSpecifiedIndex(keyword: String, pageStart: Int): JsonObject = null
+    
+    def searchForKeywordStartingAtSpecifiedIndex(keyword : String, startIndex : Int) = {
+	try {
+	    val url = new URL(format(SEARCH_URL_PATTERN, URLEncoder.encode(keyword, "utf-8"), startIndex));
+	    	    
+	    loadDataFromURL(url);
+	} catch (MalformedURLException e) {
+	    throw new HarvesterException(e);
+	} catch (UnsupportedEncodingException e) {
+	    throw new HarvesterException(e);
+	}
+    }
+
+    def loadDataFromURL(url : URL) {
+	var reader : Reader = null;
+	try {
+	    val connection = url.openConnection();
+	    reader = new InputStreamReader(connection.getInputStream())
+	    val searchResult = (JsonObject) (new JsonParser().parse(reader))
+
+	    return searchResult;
+	} catch (IOException e) {
+	    throw new HarvesterException("Could not perform search", e);
+	} finally {
+	    IOUtils.closeQuietly(reader);
+	}
+    }  
 }
 
 object GoogleSearchResultExtractorUtility {
@@ -136,18 +152,7 @@ class PageLoader(reporter: PageLoaderReporter) {
       val searchResult = searchProvider.searchForKeywordStartingAtSpecifiedIndex(keyword, start)
       collectUrlsFromSearchResult(keyword, GoogleSearchResultExtractorUtility.extractNextStartIndex(searchResult), result ::: GoogleSearchResultExtractorUtility.findUrls(searchResult))
     }
-    //    var collectedUrls = List.empty[String];
-    //
-    //    var pageStart = 1
-    //    for (collectedUrlsCnt <- List.range(1, 10) if pageStart > 0) {
-    //      val searchResult = searchProvider.searchForKeywordStartingAtSpecifiedIndex(keyword, pageStart)
-    //
-    //      collectedUrls = collectedUrls ::: GoogleSearchResultExtractorUtility.findUrls(searchResult)
-    //      pageStart = GoogleSearchResultExtractorUtility.extractNextStartIndex(searchResult);
-    //    }
-    //    collectedUrls
     collectUrlsFromSearchResult(keyword, 1, List.empty[String])
-
   }
 
   private def loadPageFromUrl(urlString: String) = {
@@ -170,7 +175,7 @@ class PageLoader(reporter: PageLoaderReporter) {
   private def createHtmlFromPageContent(pageAsString: String) = {
     val finder = new HtmlElementFinder(pageAsString);
 
-    new HtmlPageData(finder.getTitle, finder.getMetaValue, finder.getBodyValues);
+    new HtmlPageData(finder.title, finder.keywords, finder.bodyContent)
   }
 
   protected def createPageInputStream(urlString: String): Option[InputStream] = {
