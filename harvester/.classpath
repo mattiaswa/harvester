@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <classpath>
 	<classpathentry including="**/*.html|**/*.json|**/*.java" kind="src" output="target/test-classes" path="src/test/java"/>
-	<classpathentry excluding="harvester/ElementQualifier.java|harvester/GoogleSearchResultExtractorUtility.java|harvester/HarvesterException.java|harvester/HtmlElementFinder.java|harvester/HtmlPageData.java|harvester/KeywordHarvester.java|harvester/PageLoader.java|harvester/PageLoaderReporter.java|harvester/RelatedKeyword.java|harvester/SearchProvider.java" including="**/*.html|**/*.json|**/*.java" kind="src" path="src/main/java"/>
+	<classpathentry including="**/*.html|**/*.json|**/*.java" kind="src" path="src/main/java"/>
 	<classpathentry excluding="**/*.java" kind="src" path="src/main/resources"/>
 	<classpathentry kind="var" path="M2_REPO/net/sourceforge/collections/collections-generic/4.01/collections-generic-4.01.jar" sourcepath="M2_REPO/net/sourceforge/collections/collections-generic/4.01/collections-generic-4.01-sources.jar"/>
 	<classpathentry kind="var" path="M2_REPO/commons-io/commons-io/2.0.1/commons-io-2.0.1.jar" sourcepath="M2_REPO/commons-io/commons-io/2.0.1/commons-io-2.0.1-sources.jar"/>
