@@ -1,5 +1,7 @@
 package harvester
 
+class HarvesterException(message : String, t : Throwable ) extends RuntimeException(message, t)
+
 case class RelatedKeyword(word: String, relevance: Int) extends Comparable[RelatedKeyword] {
   def compareTo(o: RelatedKeyword): Int = {
     return o.relevance - this.relevance

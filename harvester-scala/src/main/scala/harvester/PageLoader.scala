@@ -2,16 +2,14 @@ package harvester
 
 import java.io.IOException
 import java.io.InputStream
-import java.io.InputStreamReader
-import java.io.Reader
+import java.io.UnsupportedEncodingException
+import java.net.MalformedURLException
 import java.net.URL
 import java.net.URLConnection
 import java.net.URLEncoder
 
 import scala.collection.JavaConversions._
-
-import org.apache.commons.io.IOUtils._
-import org.apache.commons.io._
+import scala.util.control.Exception._
 
 import com.google.gson._
 
@@ -47,7 +45,7 @@ private class HtmlElementFinder(private val page: String) {
   val bodyContent = searchBody(source)
 
   private def searchBody(source: Source) = {
-    var body = Map.empty[ElementQualifier, String]
+    var body = Map[ElementQualifier, String]()
     for (htmlTagName <- ElementQualifier.values) {
 
       source.getAllElements(htmlTagName.toString().toLowerCase()).foreach(hTag => {
@@ -97,38 +95,29 @@ private object SearchProvider {
 }
 
 class SearchProvider {
-    
-    def searchForKeywordStartingAtSpecifiedIndex(keyword : String, startIndex : Int) = {
-	try {
-	    val url = new URL(format(SEARCH_URL_PATTERN, URLEncoder.encode(keyword, "utf-8"), startIndex));
-	    	    
-	    loadDataFromURL(url);
-	} catch (MalformedURLException e) {
-	    throw new HarvesterException(e);
-	} catch (UnsupportedEncodingException e) {
-	    throw new HarvesterException(e);
-	}
+
+  def searchForKeywordStartingAtSpecifiedIndex(keyword: String, startIndex: Int) = {
+    catching(classOf[MalformedURLException], classOf[UnsupportedEncodingException]) opt {
+      loadDataFromURL(format(SEARCH_URL_PATTERN, URLEncoder.encode(keyword, "utf-8"), startIndex));
     }
+  }
 
-    def loadDataFromURL(url : URL) {
-	var reader : Reader = null;
-	try {
-	    val connection = url.openConnection();
-	    reader = new InputStreamReader(connection.getInputStream())
-	    val searchResult = (JsonObject) (new JsonParser().parse(reader))
-
-	    return searchResult;
-	} catch (IOException e) {
-	    throw new HarvesterException("Could not perform search", e);
-	} finally {
-	    IOUtils.closeQuietly(reader);
-	}
-    }  
+  def loadDataFromURL(url: String) = new JsonParser().parse(scala.io.Source.fromURL(url).bufferedReader()).asInstanceOf[JsonObject]
 }
 
 object GoogleSearchResultExtractorUtility {
-  def findUrls(searchResult: JsonObject) = List.empty[String]
-  def extractNextStartIndex(data: JsonObject) = 0
+  def findUrls(input: JsonObject) = {
+    input.get("items").asInstanceOf[JsonArray].filter(elem => elem.isJsonObject() && elem.isInstanceOf[JsonObject]).map(_.asInstanceOf[JsonObject].get("link").getAsString).toList
+  }
+
+  def extractNextStartIndex(searchResult: JsonObject) = {
+    val nextPageElement = searchResult.get("queries").asInstanceOf[JsonObject].get("nextPage")
+    if (nextPageElement == null || nextPageElement.isJsonNull()) {
+      -1
+    } else {
+      nextPageElement.asInstanceOf[JsonArray].get(0).asInstanceOf[JsonObject].get("startIndex").getAsInt
+    }
+  }
 }
 
 object VoidPageLoaderReporter extends PageLoaderReporter
@@ -146,43 +135,24 @@ class PageLoader(reporter: PageLoaderReporter) {
 
   private def collectUrlsFromSearchResult(keyword: String) = {
     def collectUrlsFromSearchResult(keyword: String, start: Int, result: List[String]): List[String] = {
-      if (result.size > 10) {
+      if (start < 0 || result.size > 10) {
         result
       }
-      val searchResult = searchProvider.searchForKeywordStartingAtSpecifiedIndex(keyword, start)
-      collectUrlsFromSearchResult(keyword, GoogleSearchResultExtractorUtility.extractNextStartIndex(searchResult), result ::: GoogleSearchResultExtractorUtility.findUrls(searchResult))
+
+      searchProvider.searchForKeywordStartingAtSpecifiedIndex(keyword, start) match {
+        case None => result
+        case Some(searchResult) => collectUrlsFromSearchResult(keyword, GoogleSearchResultExtractorUtility.extractNextStartIndex(searchResult), result ::: GoogleSearchResultExtractorUtility.findUrls(searchResult))
+      }
     }
-    collectUrlsFromSearchResult(keyword, 1, List.empty[String])
+
+    collectUrlsFromSearchResult(keyword, 1, List[String]())
   }
 
   private def loadPageFromUrl(urlString: String) = {
-    createPageInputStream(urlString) match {
-      case None => {
-        reporter.report(String.format("Could not load data from %s, skipping", urlString))
-        None
-      }
-
-      case Some(input) => {
-        this.reporter.report(String.format("Loading data from %s", urlString));
-        val res = Some(createHtmlFromPageContent(IOUtils.toString(input)))
-        closeQuietly(input);
-        res
-      }
-    }
-
-  }
-  //
-  private def createHtmlFromPageContent(pageAsString: String) = {
-    val finder = new HtmlElementFinder(pageAsString);
-
-    new HtmlPageData(finder.title, finder.keywords, finder.bodyContent)
-  }
-
-  protected def createPageInputStream(urlString: String): Option[InputStream] = {
-    try {
-      Some(new URL(urlString).openConnection().getInputStream())
-    } catch {
-      case e: IOException => None
+    catching(classOf[IOException]) opt {
+      val finder = new HtmlElementFinder(scala.io.Source.fromURL(urlString).mkString);
+      new HtmlPageData(finder.title, finder.keywords, finder.bodyContent)
     }
   }
+
 }
