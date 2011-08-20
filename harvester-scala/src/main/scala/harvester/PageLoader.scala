@@ -75,18 +75,19 @@ private class HtmlElementFinder(private val page: String) {
   }
 
   private def getMetaValue(source: Source, key: String) = {
-    var pos = 0
-    while (pos < source.length()) {
-      val startTag = source.getNextStartTag(pos, "name", key, false);
-      if (startTag == null)
-        null;
-      if (startTag.getName().equals(HTMLElementName.META)) {
-        // Attribute values are automatically decoded
-        startTag.getAttributeValue("content");
-      }
-      pos = startTag.getEnd();
-    }
+    //    var pos = 0
+    //    while (pos < source.length()) {
+    //      val startTag = source.getNextStartTag(pos, "name", key, false);
+    //      if (startTag == null)
+    //        /*Return*/null;
+    //      else if (startTag.getName().equals(HTMLElementName.META)) {
+    //        // Attribute values are automatically decoded
+    //        /*Return*/startTag.getAttributeValue("content");
+    //      } else
+    //        pos = startTag.getEnd();
+    //    }
     "";
+    //  }
   }
 }
 
@@ -102,7 +103,9 @@ class SearchProvider {
     }
   }
 
-  def loadDataFromURL(url: String) = new JsonParser().parse(scala.io.Source.fromURL(url).bufferedReader()).asInstanceOf[JsonObject]
+  def loadDataFromURL(url: String) = {
+    new JsonParser().parse(scala.io.Source.fromURL(url).bufferedReader()).asInstanceOf[JsonObject]
+  }
 }
 
 object GoogleSearchResultExtractorUtility {
@@ -131,17 +134,22 @@ class PageLoader(reporter: PageLoaderReporter) {
 
   var searchProvider: SearchProvider = null
 
-  def getPagesForKeyword(keyword: String): Seq[HtmlPageData] = collectUrlsFromSearchResult(keyword).map(loadPageFromUrl).flatten;
+  def getPagesForKeyword(keyword: String): Seq[HtmlPageData] = {
+    val c = collectUrlsFromSearchResult(keyword).par
+    c.map(loadPageFromUrl).flatten.seq;
+  }
 
   private def collectUrlsFromSearchResult(keyword: String) = {
     def collectUrlsFromSearchResult(keyword: String, start: Int, result: List[String]): List[String] = {
+      println("Result.size=" + result.size)
+      println("Start=" + start)
       if (start < 0 || result.size > 10) {
         result
-      }
-
-      searchProvider.searchForKeywordStartingAtSpecifiedIndex(keyword, start) match {
-        case None => result
-        case Some(searchResult) => collectUrlsFromSearchResult(keyword, GoogleSearchResultExtractorUtility.extractNextStartIndex(searchResult), result ::: GoogleSearchResultExtractorUtility.findUrls(searchResult))
+      } else {
+        searchProvider.searchForKeywordStartingAtSpecifiedIndex(keyword, start) match {
+          case None => result
+          case Some(searchResult) => collectUrlsFromSearchResult(keyword, GoogleSearchResultExtractorUtility.extractNextStartIndex(searchResult), result ::: GoogleSearchResultExtractorUtility.findUrls(searchResult))
+        }
       }
     }
 
@@ -149,8 +157,10 @@ class PageLoader(reporter: PageLoaderReporter) {
   }
 
   private def loadPageFromUrl(urlString: String) = {
-    catching(classOf[IOException]) opt {
-      val finder = new HtmlElementFinder(scala.io.Source.fromURL(urlString).mkString);
+    catching(classOf[Exception]) opt {
+      val page = scala.io.Source.fromURL(urlString).mkString
+      println(format("Loaded page from %s", urlString))
+      val finder = new HtmlElementFinder(page);
       new HtmlPageData(finder.title, finder.keywords, finder.bodyContent)
     }
   }
